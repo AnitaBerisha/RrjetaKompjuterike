@@ -36,3 +36,12 @@ class ClientHandler implements Runnable {
     public ClientHandler(Socket socket) {
         this.socket = socket;
     }
+    @Override
+    public void run() {
+        try (
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true)
+        ) {
+            // Leximi i mesazhit nga klienti
+            String clientMessage = in.readLine();
+            System.out.println("Mesazhi i pranuar: " + clientMessage);
