@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -28,4 +29,16 @@ public class klienti {
             // Leximi i përgjigjes nga serveri
             String pergjigja = in.readLine();
             System.out.println("Përgjigja nga Serveri: " + pergjigja);
+           // Mesazhi për qasje në folderat
+            if (pergjigja.contains("RWX")) {
+                System.out.println("Sistemi: Ju keni qasje WRITE/READ/EXECUTE në server.");
+            } else {
+                System.out.println("Sistemi: Ju keni vetëm qasje READ.");
+            }
+
+        } catch (IOException e) {
+            System.err.println("Gabim: Nuk u arrit lidhja me serverin në " + serverIP + ":" + serverPort);
+        }
+    }
+}
 
