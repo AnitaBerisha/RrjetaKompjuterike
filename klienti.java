@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class klienti {
     public static void main(String[] args) {
-        // Përcaktimi i saktë i Portit dhe IP-së së Serverit
+        // Percaktimi i sakte i Portit dhe IP-se se Serverit
         String serverIP = "192.168.1.16";
         int serverPort = 9997;
 
