@@ -9,7 +9,7 @@ public class server {
     private static final String IP_ADDRESS = "172.20.10.7";
     private static final int PORT = 9997;
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         // Kapaciteti per te degjuar te pakten 4 anetare (Thread Pool)
         ExecutorService executor = Executors.newFixedThreadPool(10);
 
