@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class klienti {
     public static void main(String[] args) {
-        // Percaktimi i sakte i Portit dhe IP-se se Serverit
+        // Përcaktimi i saktë i Portit dhe IP-së së Serverit
         String serverIP = "192.168.1.16";
         int serverPort = 9997;
 
@@ -15,3 +15,17 @@ public class klienti {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 Scanner scanner = new Scanner(System.in)
         )
+        {
+            System.out.println("Lidhja me serverin u arrit me sukses!");
+
+            // Definimi i rolit
+            System.out.print("Shkruani emrin tuaj dhe statusin: ");
+            String mesazhi = scanner.nextLine();
+
+            // Dërgimi i mesazhit si tekst
+            out.println(mesazhi);
+
+            // Leximi i përgjigjes nga serveri
+            String pergjigja = in.readLine();
+            System.out.println("Përgjigja nga Serveri: " + pergjigja);
+
