@@ -1,38 +1,24 @@
-import java.io.*;
-import java.net.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-public class server {
-    // Variablat per Portin dhe IP
-    private static final String IP_ADDRESS = "172.20.10.7";
-    private static final int PORT = 9997;
-
-    public static void main(String[] args) {
-        // Kapaciteti per te degjuar te pakten 4 anetare (Thread Pool)
-        ExecutorService executor = Executors.newFixedThreadPool(10);
-
-        try (ServerSocket serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName(IP_ADDRESS))) {
-            System.out.println("Serveri u nis ne IP: " + IP_ADDRESS + " dhe Port: " + PORT);
-            System.out.println("Duke pritur kerkesat nga anetaret e grupit...");
-
-            while (true) {
-                // Pranon kerkesat e pajisjeve
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Lidhje e re nga: " + clientSocket.getRemoteSocketAddress());
-
-                // Menaxhimi i klientit ne nje Thread te veqante
-                executor.execute(new ClientHandler(clientSocket));
+// Kontrolli i privilegjeve (Supozojmë se klienti i parë me emrin 'Admin' ka qasje të plotë)
+            String response;
+            if (clientMessage.contains("Admin")) {
+                response = "STATUS: Qasje e plotë (RWX). Mund të modifikoni folderat në server.";
+                System.out.println("Klientit i u dha qasje e plotë.");
+            } else {
+                response = "STATUS: Qasje vetëm për lexim (Read-only).";
             }
+
+            // Dërgimi i përgjigjes
+            out.println("Përshëndetje! " + response + " Ju faleminderit që jeni pjesë e FIEK.");
+
         } catch (IOException e) {
-            System.out.println("Gabim gjate ekzekutimit te serverit: " + e.getMessage());
+            System.out.println("Gabim me klientin: " + e.getMessage());
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+                    
         }
     }
 }
-
-class ClientHandler implements Runnable {
-    private Socket socket;
-
-    public ClientHandler(Socket socket) {
-        this.socket = socket;
-    }
