@@ -1,12 +1,11 @@
-
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class klienti {
+public class Klienti {
     public static void main(String[] args) {
-        // Përcaktimi i saktë i Portit dhe IP-së së Serverit
-        String serverIP = "192.168.1.16";
+        // Percaktimi i sakte i Portit dhe IP-se se Serverit
+        String serverIP = "10.180.75.80";
         int serverPort = 9997;
 
         try (
@@ -23,21 +22,21 @@ public class klienti {
             System.out.print("Shkruani emrin tuaj dhe statusin: ");
             String mesazhi = scanner.nextLine();
 
-            // Dërgimi i mesazhit si tekst
+            // Dergimi i mesazhit si tekst
             out.println(mesazhi);
 
-            // Leximi i përgjigjes nga serveri
+            // Leximi i pergjigjes nga serveri
             String pergjigja = in.readLine();
-            System.out.println("Përgjigja nga Serveri: " + pergjigja);
-           // Mesazhi për qasje në folderat
+            System.out.println("Pergjigja nga Serveri: " + pergjigja);
+           // Mesazhi për qasje ne folderat
             if (pergjigja.contains("RWX")) {
-                System.out.println("Sistemi: Ju keni qasje WRITE/READ/EXECUTE në server.");
+                System.out.println("Sistemi: Ju keni qasje WRITE/READ/EXECUTE ne server.");
             } else {
-                System.out.println("Sistemi: Ju keni vetëm qasje READ.");
+                System.out.println("Sistemi: Ju keni vetem qasje READ.");
             }
 
         } catch (IOException e) {
-            System.err.println("Gabim: Nuk u arrit lidhja me serverin në " + serverIP + ":" + serverPort);
+            System.err.println("Gabim: Nuk u arrit lidhja me serverin ne " + serverIP + ":" + serverPort);
         }
     }
 }
