@@ -31,6 +31,6 @@ Serveri mund te pranoje shume kliente njekohesisht dhe i menaxhon ata permes per
 
 ## Autor
 
-Anita Berisha
-Arbenit Krasniqi
-Kron Pajaziti
+- Anita Berisha
+- Arbenit Krasniqi
+- Kron Pajaziti
