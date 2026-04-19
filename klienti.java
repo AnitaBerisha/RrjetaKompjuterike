@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class Klienti {
+public class klienti {
     public static void main(String[] args) {
         // Percaktimi i sakte i Portit dhe IP-se se Serverit
         String serverIP = "10.180.75.80";
