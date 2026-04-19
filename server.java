@@ -3,7 +3,7 @@ import java.net.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Server {
+public class server {
     // Variablat per Portin dhe IP
     private static final String IP_ADDRESS = "10.180.75.80";
     private static final int PORT = 9997;
